@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Repaso de verano · Español B · Camino a la Prueba 1</title>
+<style>
+:root{
+  --tinta:#1a1a2e;        /* tinta casi negra, neutra */
+  --tinta-2:#33334d;
+  --acento:#3d5a73;       /* azul pizarra sobrio */
+  --acento-claro:#6b8ca3;
+  --crema:#f7f5f2;        /* papel cálido neutro */
+  --crema-2:#ebe7e0;
+  --linea:#ddd8cf;
+  --A:#3f6f5f;            /* verde sobrio (lengua) */
+  --C:#6a5a8c;            /* malva sobrio (registro) */
+  --B:#a8603d;            /* terracota sobrio (mensaje) */
+  --gris:#6c6c78;
+  --ok:#3f6f5f;
+  --mal:#a8443c;
+  --sombra:0 1px 12px rgba(26,26,46,.08);
+  --r:14px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  background:var(--crema);color:var(--tinta);line-height:1.55;font-size:17px;padding-bottom:92px;
+}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+.sans{font-family:ui-sans-serif,system-ui,-apple-system,sans-serif}
+
+header.top{background:var(--tinta);color:var(--crema);padding:26px 0 22px;position:relative;overflow:hidden}
+header.top:before{content:"";position:absolute;right:-44px;top:-30px;width:150px;height:150px;border:1.5px solid var(--acento-claro);border-radius:50%;opacity:.3}
+header.top:after{content:"";position:absolute;right:18px;top:34px;width:84px;height:84px;border:1.5px solid var(--acento-claro);border-radius:50%;opacity:.22}
+.eyebrow{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--acento-claro);font-weight:700;margin:0 0 6px}
+header.top h1{font-size:27px;line-height:1.15;margin:0 0 8px;font-weight:700}
+header.top p.sub{margin:0;font-size:15px;color:#c8ccd6;font-family:ui-sans-serif,system-ui,sans-serif}
+.criterios{display:flex;gap:8px;margin-top:16px}
+.crit-pill{flex:1;font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;text-align:center;padding:7px 4px;border-radius:9px;font-weight:700;letter-spacing:.03em;color:#fff;line-height:1.25}
+.crit-pill small{display:block;font-weight:500;opacity:.92;font-size:10px}
+.cA{background:var(--A)}.cC{background:var(--C)}.cB{background:var(--B)}
+
+.progreso{background:var(--crema-2);padding:12px 0;font-family:ui-sans-serif,system-ui,sans-serif}
+.barra{height:9px;background:#fff;border-radius:6px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.06)}
+.barra > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acento),var(--acento-claro));transition:width .5s ease}
+.prog-txt{font-size:12px;color:var(--gris);margin:7px 2px 0;display:flex;justify-content:space-between}
+
+nav.semanas{display:flex;gap:6px;overflow-x:auto;padding:14px 16px;background:var(--tinta-2);scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x;scroll-snap-type:x proximity}
+nav.semanas::-webkit-scrollbar{display:none}
+nav.semanas button{flex:0 0 auto;font-family:ui-sans-serif,system-ui,sans-serif;font-size:12.5px;font-weight:600;border:none;background:rgba(255,255,255,.1);color:#c8ccd6;padding:8px 13px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:.2s;scroll-snap-align:center}
+nav.semanas button.activa{background:var(--crema);color:var(--tinta)}
+nav.semanas button .done{color:var(--acento-claro)}
+nav.semanas button.activa .done{color:var(--A)}
+
+.semana{display:none;padding:22px 0 8px;animation:fade .35s ease}
+.semana.activa{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fase-tag{font-family:ui-sans-serif,system-ui,sans-serif;display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:6px;color:#fff;margin-bottom:10px}
+.tA{background:var(--A)}.tC{background:var(--C)}.tB{background:var(--B)}.tI{background:var(--acento)}
+.semana h2{font-size:22px;margin:4px 0 4px;line-height:1.2}
+.semana .meta{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13px;color:var(--gris);margin:0 0 18px}
+
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--sombra);padding:18px 16px;margin:0 0 16px;border:1px solid var(--linea)}
+.card h3{font-size:16px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.card h3 .n{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;font-weight:700;background:var(--crema-2);color:var(--tinta-2);min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%}
+.teoria{background:var(--crema);border-left:3px solid var(--acento);padding:11px 13px;border-radius:0 8px 8px 0;font-size:15.5px;margin:0 0 6px}
+.teoria b{color:var(--tinta-2)} .ej{font-style:italic;color:var(--acento)}
+
+/* tabla de conjugación */
+.conjug{margin:6px 0 0}
+.conjug .v{font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;font-size:14px;color:var(--A);margin:12px 0 6px}
+.conjug table{width:100%;border-collapse:collapse;font-size:14px;font-family:ui-sans-serif,system-ui,sans-serif}
+.conjug td{padding:6px 8px;border-bottom:1px solid var(--crema-2);vertical-align:top}
+.conjug td.inf{font-weight:700;color:var(--tinta-2);white-space:nowrap;width:88px}
+.conjug .nota{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13px;color:var(--gris);margin-top:8px;background:var(--crema);padding:9px 11px;border-radius:8px}
+
+/* preguntas */
+.q{margin:0 0 16px}
+.q .enunciado{font-weight:600;margin:0 0 9px;font-size:15.5px}
+.q .enunciado .hueco{border-bottom:2px dotted var(--acento);padding:0 16px}
+.opt{font-family:ui-sans-serif,system-ui,sans-serif;display:block;width:100%;text-align:left;background:var(--crema);border:1.5px solid var(--crema-2);color:var(--tinta);padding:11px 13px;border-radius:10px;margin:0 0 7px;font-size:15px;cursor:pointer;transition:.15s}
+.opt:active{transform:scale(.99)}
+.opt.ok{background:#e7efe9;border-color:var(--ok);color:var(--ok);font-weight:600}
+.opt.mal{background:#f6e7e5;border-color:var(--mal);color:var(--mal)}
+.opt:disabled{cursor:default}
+.feedback{font-family:ui-sans-serif,system-ui,sans-serif;font-size:13.5px;padding:10px 12px;border-radius:9px;margin-top:4px;display:none;line-height:1.45}
+.feedback.show{display:block}
+.feedback.bien{background:#e7efe9;color:#27503f;border-left:3px solid var(--ok)}
+.feedback.error{background:#f6e7e5;color:#7a2e28;border-left:3px solid var(--mal)}
+
+/* hueco / cloze */
+.cloze{font-size:16px;line-height:2.1;margin:6px 0 4px}
+.cloze .gap{display:inline-block;min-width:54px}
+.cloze select{font-family:ui-sans-serif,system-ui,sans-serif;font-size:14px;padding:5px 6px;border:1.5px solid var(--acento-claro);border-radius:8px;background:#fff;color:var(--tinta);max-width:170px}
+.cloze select.ok{border-color:var(--ok);background:#e7efe9;color:var(--ok);font-weight:600}
+.cloze select.mal{border-color:var(--mal);background:#f6e7e5;color:var(--mal)}
+.cloze-fb{margin-top:8px}
+.btn-check{font-family:ui-sans-serif,system-ui,sans-serif;background:var(--acento);color:#fff;border:none;padding:9px 16px;border-radius:9px;font-size:14px;font-weight:700;cursor:pointer;margin-top:6px}
+
+/* escritura breve */
+.escribe-ta{width:100%;border:1.5px solid var(--crema-2);border-radius:10px;padding:11px;font-family:inherit;font-size:15.5px;resize:vertical;min-height:80px;color:var(--tinta);background:var(--crema);margin-top:4px}
+.escribe-ta:focus{outline:none;border-color:var(--acento)}
+.modelo{display:none;margin-top:11px;background:var(--crema);border-radius:9px;padding:12px;font-size:14.5px;border-left:3px solid var(--B)}
+.modelo.show{display:block}
+.modelo .et{font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--B);font-weight:700;display:block;margin-bottom:5px}
+@keyframes pulso{50%{opacity:.55}}
+
+/* chat de oralidad */
+.chat-log{background:var(--crema);border:1px solid var(--linea);border-radius:10px;padding:12px;max-height:320px;overflow-y:auto;margin-bottom:10px}
+.msg{font-family:ui-sans-serif,system-ui,sans-serif;font-size:14.5px;line-height:1.45;padding:9px 12px;border-radius:13px;margin:0 0 8px;max-width:88%;word-wrap:break-word}
+.msg-bot{background:#fff;border:1px solid var(--crema-2);border-bottom-left-radius:4px}
+.msg-bot b{color:var(--acento)}
+.msg-yo{background:var(--acento);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.chat-dictado{display:flex;flex-direction:column;gap:8px}
+.dictado-prev{min-height:48px;border:1.5px dashed var(--crema-2);border-radius:10px;padding:11px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:15px;color:var(--gris);background:#fff;line-height:1.4}
+.dictado-prev.lleno{color:var(--tinta);border-style:solid;border-color:var(--acento);font-style:italic}
+.chat-btns{display:flex;gap:8px}
+.b-mic{flex:1;font-family:ui-sans-serif,system-ui,sans-serif;font-size:15px;font-weight:700;background:var(--B);color:#fff;border:none;border-radius:10px;padding:13px;cursor:pointer}
+.b-mic.grabando{background:var(--mal);animation:pulso 1s infinite}
+.b-mic:disabled{opacity:.45;cursor:default}
+.b-send{flex:1;font-family:ui-sans-serif,system-ui,sans-serif;background:var(--acento);color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;cursor:pointer}
+.b-send:disabled{opacity:.45;cursor:default}
+.dictado-aviso{font-size:12px;color:var(--gris);margin:2px 0 0}
+
+/* autoeval */
+.auto-q{margin:0 0 14px}
+
+.completar{text-align:center;margin:18px 0 6px}
+.completar button{font-family:ui-sans-serif,system-ui,sans-serif;background:var(--tinta);color:#fff;border:none;padding:13px 22px;border-radius:11px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:var(--sombra)}
+.completar button.hecha{background:var(--A)}
+.completar button:active{transform:scale(.98)}
+.nav-prevnext{display:flex;gap:10px;margin:14px 0 8px}
+.nav-prevnext .np-btn{flex:1;font-family:ui-sans-serif,system-ui,sans-serif;background:var(--crema-2);color:var(--tinta);border:1px solid var(--linea);border-radius:11px;padding:14px 10px;font-size:14px;font-weight:700;cursor:pointer}
+.nav-prevnext .np-btn:active{transform:scale(.98)}
+.nav-prevnext .np-btn:disabled{opacity:.4;cursor:default}
+
+.barra-inf{position:fixed;bottom:0;left:0;right:0;background:var(--tinta);padding:11px 16px;display:flex;gap:9px;box-shadow:0 -2px 14px rgba(0,0,0,.16);z-index:50}
+.barra-inf button{flex:1;font-family:ui-sans-serif,system-ui,sans-serif;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:700;cursor:pointer}
+.btn-inf{background:var(--acento);color:#fff}
+.btn-help{background:rgba(255,255,255,.13);color:#fff;flex:0 0 52px}
+
+.modal{display:none;position:fixed;inset:0;background:rgba(26,26,46,.6);z-index:100;padding:20px;overflow-y:auto}
+.modal.show{display:block}
+.modal-box{background:var(--crema);max-width:560px;margin:24px auto;border-radius:16px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.modal-box h3{margin:0 0 12px;font-size:20px}
+.modal-box p{font-size:14.5px;color:var(--gris);font-family:ui-sans-serif,system-ui,sans-serif}
+.modal-box textarea{width:100%;min-height:150px;font-family:ui-monospace,monospace;font-size:12px;border:1.5px solid var(--crema-2);border-radius:10px;padding:11px;background:#fff;color:var(--tinta)}
+.modal-acc{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.modal-acc button{flex:1;font-family:ui-sans-serif,system-ui,sans-serif;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;min-width:130px}
+.b-mail{background:var(--A);color:#fff}.b-copy{background:var(--acento);color:#fff}.b-close{background:var(--crema-2);color:var(--tinta)}
+.aviso{background:#fbf3e9;border:1px solid #e0c4a0;border-radius:10px;padding:11px 13px;font-size:13px;font-family:ui-sans-serif,system-ui,sans-serif;color:#7a5524;margin:14px 0}
+.nota-final{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12.5px;color:var(--gris);text-align:center;padding:20px 16px 8px}
+
+/* ---------- responsive: móviles ---------- */
+.wrap, .card, .semana{max-width:100%}
+img,.conjug table{max-width:100%}
+.card{overflow-wrap:break-word;word-wrap:break-word}
+.conjug table{table-layout:fixed}
+.conjug td{word-break:break-word}
+.cloze select{max-width:100%}
+
+@media (max-width:600px){
+  body{font-size:16px}
+  .wrap{padding:0 13px}
+  header.top{padding:22px 0 18px}
+  header.top h1{font-size:23px}
+  header.top:before{width:120px;height:120px;right:-36px}
+  header.top:after{width:66px;height:66px}
+  .crit-pill{font-size:10.5px;padding:6px 3px}
+  .crit-pill small{font-size:9px}
+  .semana h2{font-size:20px}
+  .card{padding:15px 13px}
+  .card h3{font-size:15px}
+  .teoria{font-size:15px}
+  .conjug table{font-size:13px}
+  .conjug td.inf{width:74px}
+  .opt{font-size:14.5px;padding:10px 12px}
+  .cloze{line-height:2.4;font-size:15.5px}
+  .nav-prevnext .np-btn{padding:13px 8px;font-size:13.5px}
+  .barra-inf{padding:9px 12px;gap:7px}
+  .barra-inf button{padding:11px;font-size:13px}
+  .btn-help{flex:0 0 46px}
+  .modal{padding:12px}
+  .modal-box{padding:18px;margin:12px auto}
+  .chat-log{max-height:260px}
+}
+@media (max-width:380px){
+  header.top h1{font-size:21px}
+  .crit-pill small{display:none}
+  .crit-pill{padding:8px 4px}
+  .barra-inf button{font-size:12px}
+  .conjug td.inf{width:64px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Español B · The Global College</p>
+    <h1>Ocho semanas de repaso</h1>
+    <p class="sub">Entrenamiento de la expresión escrita por criterios</p>
+    <div class="criterios">
+      <div class="crit-pill cA">A<small>Lengua</small></div>
+      <div class="crit-pill cC">C<small>Registro y tipo de texto</small></div>
+      <div class="crit-pill cB">B<small>Mensaje</small></div>
+    </div>
+  </div>
+</header>
+<div class="progreso"><div class="wrap">
+  <div class="barra"><i id="barraProg"></i></div>
+  <div class="prog-txt"><span id="progLabel">Semana 0 de 8 completadas</span><span id="progPct">0%</span></div>
+</div></div>
+<nav class="semanas" id="navSemanas"></nav>
+<div class="wrap" id="contenido"></div>
+
+<div class="barra-inf">
+  <button class="btn-inf" onclick="abrirInforme()">Generar mi informe para la profesora</button>
+  <button class="btn-help" onclick="document.getElementById('mAyuda').classList.add('show')">?</button>
+</div>
+
+<div class="modal" id="mInforme"><div class="modal-box">
+  <h3>Tu informe de verano</h3>
+  <p>Esto resume lo que has trabajado. Envíaselo a tu profesora antes de septiembre.</p>
+  <textarea id="textoInforme" readonly></textarea>
+  <div class="modal-acc">
+    <button class="b-mail" onclick="enviarMail()">Enviar por correo</button>
+    <button class="b-copy" onclick="copiarInforme()">Copiar</button>
+    <button class="b-close" onclick="document.getElementById('mInforme').classList.remove('show')">Cerrar</button>
+  </div>
+  <div class="aviso">Importante: usa siempre el mismo dispositivo durante el verano. Si borras el historial del navegador o cambias de móvil, el progreso se pierde.</div>
+</div></div>
+
+<div class="modal" id="mAyuda"><div class="modal-box">
+  <h3>Cómo usar esto</h3>
+  <p style="color:var(--tinta);font-size:15px;line-height:1.6">
+  Una semana cada semana de verano, sin prisa. Cada una entrena un criterio de la Prueba 1:<br><br>
+  <b style="color:var(--A)">Criterio A</b> — que la lengua sea correcta (gramática y vocabulario).<br>
+  <b style="color:var(--C)">Criterio C</b> — que elijas bien el tipo de texto y el registro.<br>
+  <b style="color:var(--B)">Criterio B</b> — que tus ideas sean claras, justificadas y maduras.<br><br>
+  En los ejercicios, si fallas te explico por qué: ahí está el aprendizaje. Al final de cada semana pulsa <b>"He terminado esta semana"</b>.<br><br>
+  Cuando termines, al final del verano, genera tu informe y envíaselo a tu profesora (<b>helena.pascual@theglobalcollege.com</b>).</p>
+  <div class="modal-acc"><button class="b-close" onclick="document.getElementById('mAyuda').classList.remove('show')">Entendido</button></div>
+</div></div>
+
+<p class="nota-final">Departamento de Español · Programa del Diploma · Material de repaso autónomo</p>
+<script>
+/* Contenido — Repaso de verano Español B · Dpto. Español TGC
+   Gramática ampliada apoyada en Course Companion (Oxford), Fundéu y RAE.
+   Progresión A → C → B → integración. */
+
+const CORREO_PROFE = "helena.pascual@theglobalcollege.com";
+
+const VOCAB = {
+  "Identidades":["bienestar","hábitos alimenticios","combatir el estrés","fortalecer","influir en","crear conciencia","herencia cultural","preservar","perjudicial","beneficioso"],
+  "Experiencias":["choque cultural","raíces","experiencia enriquecedora","mantener viva","escapada","poner los pelos de punta","transmitir","alojamiento"],
+  "Organización social":["brecha salarial","conciliar la vida laboral y personal","precariedad laboral","ser despedido","expectativas","empatizar","ascender","carga de trabajo"],
+  "Ingenio humano":["viralizarse","a pasos agigantados","imprescindible","patrimonio cultural","ponerse de moda","contrastar la información","estar al día","desarrollo"],
+  "Compartir el planeta":["energías renovables","sostenible","mitigar","agotar los recursos","tomar medidas","llegar a un acuerdo","construir puentes","derechos humanos"]
+};
+
+const SEMANAS = [
+
+ { fase:"A", tag:"tA", crit:"A",
+  titulo:"Semana 1 · Los pasados y la acentuación",
+  meta:"Empezamos por los dos errores que más bajan el Criterio A en no nativos.",
+  intro:"El indefinido y el imperfecto son la primera causa de error en pasado; la acentuación, en el texto escrito. Dominarlos sube tu nota sin escribir una palabra más. Hoy: teoría breve, conjugación, irregulares y práctica.",
+  teoria:[
+    {t:"Indefinido vs. imperfecto: el contraste clave",h:"El <b>pretérito indefinido</b> (<span class='ej'>hablé, comí, viví</span>) cuenta acciones <b>terminadas y puntuales</b>: <span class='ej'>ayer fui al cine, de repente sonó el teléfono</span>. El <b>pretérito imperfecto</b> (<span class='ej'>hablaba, comía, vivía</span>) describe el <b>fondo, la costumbre o lo que duraba</b>: <span class='ej'>antes iba siempre, mientras llovía, era de noche</span>.<br><br>Regla práctica: el imperfecto se usa para <i>hábitos y acciones repetidas en el pasado</i> (<span class='ej'>Cuando era niño, mi padre jugaba al fútbol todos los días</span>); el indefinido para el hecho concreto que rompe esa rutina (<span class='ej'>Un día le regalaron un balón nuevo</span>)."}
+  ],
+  conjug:[
+    {verbo:"Indefinido — verbos regulares",
+     formas:[["hablar","hablé · hablaste · habló · hablamos · hablasteis · hablaron"],["comer","comí · comiste · comió · comimos · comisteis · comieron"],["vivir","viví · viviste · vivió · vivimos · vivisteis · vivieron"]],
+     nota:"Ojo a la tilde: <b>hablé</b> y <b>habló</b> la llevan; <b>hablo</b> sin tilde es presente. La tilde cambia el tiempo."},
+    {verbo:"Indefinido — irregulares más problemáticos",
+     formas:[["ser / ir","fui · fuiste · fue · fuimos · fuisteis · fueron (¡iguales!)"],["estar","estuve · estuviste · estuvo · estuvimos · estuvisteis · estuvieron"],["hacer","hice · hiciste · hizo · hicimos · hicisteis · hicieron"],["tener","tuve · tuviste · tuvo · tuvimos · tuvisteis · tuvieron"],["decir","dije · dijiste · dijo · dijimos · dijisteis · dijeron"]],
+     nota:"<b>Ser</b> e <b>ir</b> comparten formas: el contexto decide. Estos irregulares NO llevan tilde en 1ª y 3ª persona (<span class='ej'>tuve, hizo</span>), a diferencia de los regulares."}
+  ],
+  teoria2:[
+    {t:"La acentuación, según la RAE y la Fundéu",h:"<b>Agudas</b>: tilde si acaban en vocal, -n o -s (<span class='ej'>café, salón, además</span>). <b>Llanas</b>: tilde si NO acaban en vocal, -n o -s (<span class='ej'>árbol, lápiz, fácil</span>). <b>Esdrújulas</b>: siempre (<span class='ej'>médico, página</span>).<br><br>Caso que cae siempre: <b>examen, imagen, joven, resumen, origen</b> son llanas en -n y NO llevan tilde; pero sus plurales sí (<span class='ej'>exámenes, imágenes, jóvenes</span>) porque pasan a esdrújulas.<br><br><b>Tilde diacrítica</b>: distingue monosílabos iguales: <span class='ej'>él/el · tú/tu · mí/mi · sé/se · té/te · más/mas · dé/de</span>. Para nivel alto: 'solo' y los demostrativos pueden tildarse solo en caso de ambigüedad."}
+  ],
+  test:[
+    {q:"Cuando <span class='hueco'></span> a casa, mi madre ya <span class='hueco'></span> la cena.",
+     opt:["llegué / preparaba","llegaba / preparó","llegué / preparó"],c:0,
+     mal:"El primer verbo es puntual y terminado: indefinido <b>llegué</b>. El segundo describe lo que ya estaba en proceso de fondo: imperfecto <b>preparaba</b>. Patrón clásico de la Prueba 1.",
+     bien:"Acción puntual (llegué) sobre un fondo en proceso (preparaba)."},
+    {q:"De niño <span class='hueco'></span> todos los veranos a la playa.",
+     opt:["fui","iba","he ido"],c:1,
+     mal:"'Todos los veranos' indica costumbre repetida: pide <b>imperfecto, iba</b>. 'Fui' sería una sola vez.",
+     bien:"Una costumbre repetida en el pasado va en imperfecto: iba."},
+    {q:"Ayer mi hermano <span class='hueco'></span> los deberes en una hora.",
+     opt:["hacía","hizo","hacé"],c:1,
+     mal:"Acción terminada y puntual: indefinido de hacer = <b>hizo</b> (3ª persona, sin tilde, con z). 'Hacía' sería costumbre; 'hacé' no existe aquí.",
+     bien:"Acción puntual y acabada: hizo (indefinido de hacer)."},
+    {q:"¿Qué plural está bien acentuado?",
+     opt:["examenes","exámenes","éxamenes"],c:1,
+     mal:"<b>Examen</b> es llana en -n, sin tilde. Pero el plural <b>exámenes</b> es esdrújula, y las esdrújulas SIEMPRE llevan tilde.",
+     bien:"El plural exámenes es esdrújula: lleva tilde aunque el singular no."},
+    {q:"Señala la frase correcta:",
+     opt:["Sé que él tiene más libros que tú.","Se que el tiene mas libros que tu.","Sé que el tiene más libros que tu."],c:0,
+     mal:"Necesitas las diacríticas: <b>sé</b> (saber), <b>él</b> (pronombre), <b>más</b> (cantidad), <b>tú</b> (pronombre).",
+     bien:"sé, él, más, tú llevan tilde diacrítica."}
+  ],
+  vocabHueco:{area:"Identidades",
+    texto:"Cuidar la salud mental es tan importante como la física. Para mantener el ___1___ emocional, los especialistas recomiendan ___2___ con regularidad y dormir bien, ya que el deporte y el descanso ayudan a ___3___ el estrés que acumulamos durante el curso.",
+    soluciones:[
+      {opciones:["bienestar","alojamiento","patrimonio","desarrollo","choque cultural","escapada"],c:0,mal:"'Mantener el ___ emocional' pide 'bienestar': el estado de sentirse bien.",bien:"El bienestar es el estado de sentirse bien física y mentalmente."},
+      {opciones:["aislarse","hacer ejercicio","viralizarse","ser despedido","mitigar","ascender"],c:1,mal:"'El deporte ayuda' apunta a 'hacer ejercicio'; 'aislarse' sería lo contrario de cuidarse.",bien:"Hacer ejercicio encaja con 'el deporte… ayuda'."},
+      {opciones:["combatir","agotar","imponer","transmitir","preservar","contrastar"],c:0,mal:"'Combatir el estrés' es la colocación habitual: luchar contra él.",bien:"'Combatir el estrés' es la combinación natural: luchar contra él."}
+    ]},
+  chat:{tema:"tus vacaciones y tu rutina de antes",
+    saludo:"¡Hola! Vamos a conversar, como en el examen oral. Cuéntame: ¿qué hiciste el verano pasado y qué solías hacer de pequeño en vacaciones?",
+    claves:["verano","vacacion","playa","viaj","fui","fue","iba","solía","pequeño","infancia","antes","siempre","recuerdo","familia"],
+    repreguntas:[
+      "¿Con quién solías ir de vacaciones cuando eras pequeño?",
+      "¿Qué momento de ese verano recuerdas con más cariño y por qué?",
+      "¿Cómo eran esas vacaciones comparadas con las de ahora?"
+    ],
+    nota:"Dicta tu respuesta pulsando el botón de micrófono. No es una nota: es para practicar la expresión oral."}
+ },
+
+ { fase:"A", tag:"tA", crit:"A",
+  titulo:"Semana 2 · Ser/estar y el presente de subjuntivo",
+  meta:"Dos pilares del Criterio A: cuándo va ser o estar, y el presente de subjuntivo.",
+  intro:"Hoy, dos cosas donde el no nativo más 'suena' a extranjero: la diferencia ser/estar y el presente de subjuntivo (cuándo se usa y cómo se distingue del indicativo). La semana que viene seguimos con más modos.",
+  teoria:[
+    {t:"Ser vs. estar",h:"<b>Ser</b>: identidad, características esenciales, profesión, origen, material, hora (<span class='ej'>es médico, es de Madrid, son las tres</span>). También dónde/cuándo <b>ocurre un evento</b> (<span class='ej'>el examen es mañana, la fiesta es en mi casa</span>).<br><b>Estar</b>: estados cambiantes, ubicación, resultado, acción en curso (<span class='ej'>está cansado, está en casa, está roto, está lloviendo</span>).<br><br>Cambian de sentido: <span class='ej'>ser listo</span> (inteligente) / <span class='ej'>estar listo</span> (preparado); <span class='ej'>ser aburrido</span> (que aburre) / <span class='ej'>estar aburrido</span> (que se aburre)."}
+  ],
+  conjug:[
+    {verbo:"Presente de subjuntivo — regulares",
+     formas:[["hablar","hable · hables · hable · hablemos · habléis · hablen"],["comer","coma · comas · coma · comamos · comáis · coman"],["vivir","viva · vivas · viva · vivamos · viváis · vivan"]],
+     nota:"Truco: parte de la 1ª persona del presente (<i>hablo, como, vivo</i>), quita la -o y cambia la vocal: -ar pasa a -e; -er/-ir pasan a -a."},
+    {verbo:"Presente de subjuntivo — irregulares frecuentes",
+     formas:[["ser","sea · seas · sea · seamos · seáis · sean"],["estar","esté · estés · esté · estemos · estéis · estén"],["ir","vaya · vayas · vaya · vayamos · vayáis · vayan"],["haber","haya · hayas · haya · hayamos · hayáis · hayan"],["tener","tenga · tengas · tenga · tengamos · tengáis · tengan"]],
+     nota:"Muchos irregulares heredan la raíz de la 1ª persona del presente (<i>tengo → tenga, salgo → salga</i>). 'Haya' (haber) no se confunde con 'halla' (hallar) ni 'allá' (lugar)."}
+  ],
+  teoria2:[
+    {t:"¿Cuándo se usa el presente de subjuntivo?",h:"Con <b>deseo, duda, emoción, valoración y finalidad</b>, normalmente tras 'que':<br>• Deseo: <span class='ej'>quiero que vengas, espero que apruebes</span><br>• Duda/opinión negada: <span class='ej'>no creo que sea verdad</span><br>• Emoción: <span class='ej'>me alegra que estés aquí</span><br>• Valoración: <span class='ej'>es importante que estudies</span><br>• Finalidad: <span class='ej'>para que aprendas, de modo que entiendan</span><br><br>Contraste: 'creo que <b>es</b>' (afirmo → indicativo) vs. 'no creo que <b>sea</b>' (niego → subjuntivo)."}
+  ],
+  test:[
+    {q:"Mi hermano <span class='hueco'></span> muy nervioso porque mañana <span class='hueco'></span> el examen.",
+     opt:["es / está","está / es","está / está"],c:1,
+     mal:"'Nervioso' es estado pasajero → <b>está</b>. El examen es un evento que tiene lugar → <b>es</b> mañana (ser localiza eventos en el tiempo).",
+     bien:"Estado pasajero (está nervioso) + evento que ocurre (el examen es mañana)."},
+    {q:"No creo que <span class='hueco'></span> buena idea salir con esta tormenta.",
+     opt:["es","sea","será"],c:1,
+     mal:"'No creo que' niega una opinión: exige <b>presente de subjuntivo, sea</b>. Con 'creo que' iría indicativo.",
+     bien:"La opinión negada pide presente de subjuntivo: sea."},
+    {q:"Es fundamental que los jóvenes <span class='hueco'></span> hábitos saludables.",
+     opt:["tienen","tengan","tendrán"],c:1,
+     mal:"'Es fundamental que' es valoración: rige <b>subjuntivo, tengan</b> (irregular: raíz de 'tengo').",
+     bien:"'Es fundamental que' + presente de subjuntivo: tengan."},
+    {q:"Te lo explico otra vez para que lo <span class='hueco'></span> bien.",
+     opt:["entiendes","entiendas","entenderás"],c:1,
+     mal:"'Para que' (finalidad) siempre rige <b>presente de subjuntivo: entiendas</b>. Muy rentable al proponer medidas.",
+     bien:"'Para que' + presente de subjuntivo: entiendas."},
+    {q:"Contraste: «Estoy seguro de que <span class='hueco'></span> a tiempo» / «No estoy seguro de que <span class='hueco'></span> a tiempo».",
+     opt:["llega / llega","llega / llegue","llegue / llega"],c:1,
+     mal:"Afirmar con seguridad ('estoy seguro de que') va en <b>indicativo: llega</b>. Negar esa seguridad ('no estoy seguro de que') introduce duda y pide <b>presente de subjuntivo: llegue</b>. Es el contraste clave indicativo/subjuntivo.",
+     bien:"Certeza → indicativo (llega); duda/negación → subjuntivo (llegue)."},
+    {q:"¿Cuál usa bien el indicativo (un hecho que se afirma)?",
+     opt:["Es verdad que el clima cambie.","Es verdad que el clima está cambiando.","Es posible que el clima está cambiando."],c:1,
+     mal:"'Es verdad que' afirma un hecho → <b>indicativo: está cambiando</b>. 'Es posible que' sí pediría subjuntivo (esté). No mezcles: hechos afirmados en indicativo, posibilidades/dudas en subjuntivo.",
+     bien:"'Es verdad que' afirma un hecho: indicativo (está cambiando)."}
+  ],
+  vocabHueco:{area:"Organización social",
+    texto:"El mundo laboral actual genera mucha presión. Muchos empleados arrastran una enorme ___1___ y no consiguen ___2___ la vida laboral y la personal, lo que afecta a su salud. A todo ello se suma que la ___3___ entre hombres y mujeres sigue siendo, por desgracia, un problema sin resolver.",
+    soluciones:[
+      {opciones:["carga de trabajo","escapada","herencia cultural","raíz","energía renovable","actuación"],c:0,mal:"Contexto laboral y de presión: 'carga de trabajo' es el volumen de tareas que agobia.",bien:"La carga de trabajo es el volumen de tareas."},
+      {opciones:["conciliar","ascender","empatizar","viralizar","mitigar","preservar"],c:0,mal:"'___ la vida laboral y la personal' es la colocación fija: 'conciliar', hacerlas compatibles.",bien:"Conciliar es compaginar trabajo y vida personal."},
+      {opciones:["brecha salarial","precariedad laboral","expectativa","escapada","sostenibilidad","herencia"],c:0,mal:"'___ entre hombres y mujeres' + sueldos = 'brecha salarial'.",bien:"La brecha salarial es la diferencia de sueldo entre grupos."}
+    ]},
+  chat:{tema:"cómo es tu mejor amigo/a",
+    saludo:"Descríbeme cómo es tu mejor amigo o amiga: su carácter, su aspecto, cómo está últimamente. Cuéntame todo lo que quieras.",
+    claves:["amigo","amiga","es","está","tiene","simpático","divertido","inteligente","alto","bajo","serio","alegre","tranquil","nervios","genial","guay","lleva","parece","creo"],
+    repreguntas:[
+      "¿Cómo os conocisteis? Cuéntame la historia.",
+      "¿Qué es lo que más valoras de esa persona?",
+      "¿Cómo está últimamente, cómo se siente?"
+    ],
+    nota:"Dicta tu respuesta pulsando el botón de micrófono. No es una nota: es para practicar la expresión oral."}
+ },
+
+ { fase:"C", tag:"tC", crit:"C",
+  titulo:"Semana 3 · Condicional, deseos y registro",
+  meta:"Gramática (imperfecto de subjuntivo y condicional) + el primer bloque de registro.",
+  intro:"Repartimos la gramática para que no se acumule. Hoy: el imperfecto de subjuntivo y el condicional (la pareja de las frases con 'si…') y, después, empezamos con el registro: cómo se nota en español que algo es formal, medio o informal.",
+  teoria:[
+    {t:"Imperfecto de subjuntivo y condicional: la pareja del 'si…'",h:"El <b>condicional</b> (<span class='ej'>hablaría, comería, viviría</span>) expresa hipótesis y cortesía. El <b>imperfecto de subjuntivo</b> (<span class='ej'>hablara/hablase, tuviera/tuviese</span>) aparece en la condición. Juntos forman la oración condicional irreal:<br><br><span class='ej'>Si <b>tuviera</b> más tiempo, <b>viajaría</b> más.</span> (imperf. subj. + condicional)<br><br>El condicional también sirve para pedir con cortesía (<span class='ej'>¿podría ayudarme?, me gustaría…</span>), muy útil en cartas formales."}
+  ],
+  conjug:[
+    {verbo:"Imperfecto de subjuntivo",
+     formas:[["hablar","hablara/hablase · hablaras · hablara · habláramos · hablarais · hablaran"],["tener","tuviera/tuviese · tuvieras · tuviera · tuviéramos · tuvierais · tuvieran"],["ser/ir","fuera/fuese · fueras · fuera · fuéramos · fuerais · fueran"]],
+     nota:"Se forma desde la 3ª persona del plural del indefinido (<i>hablaron → hablara; tuvieron → tuviera</i>). Tiene dos formas válidas (-ra / -se). Aparece en condicionales irreales y tras cortesía (<span class='ej'>quisiera pedirle…</span>)."},
+    {verbo:"Condicional simple",
+     formas:[["hablar","hablaría · hablarías · hablaría · hablaríamos · hablaríais · hablarían"],["tener (irr.)","tendría · tendrías · tendría · tendríamos · tendríais · tendrían"],["hacer (irr.)","haría · harías · haría · haríamos · haríais · harían"]],
+     nota:"Se añade -ía a todo el infinitivo (igual en -ar, -er, -ir). Sirve para hipótesis (<span class='ej'>yo viajaría más</span>), cortesía (<span class='ej'>¿podría ayudarme?</span>) y la consecuencia del 'si…'. Los irregulares cambian la raíz (tendr-, har-, podr-, saldr-)."}
+  ],
+  test:[
+    {q:"Condicional: «Si tuviera más tiempo libre, <span class='hueco'></span> a leer más.»",
+     opt:["volvía","volvería","vuelva"],c:1,
+     mal:"La oración condicional irreal lleva imperfecto de subjuntivo en la condición ('si tuviera') y <b>condicional en la consecuencia: volvería</b>. Es la estructura 'Si + imperfecto de subjuntivo, + condicional'.",
+     bien:"Condicional irreal: 'si tuviera…, volvería' (imperf. subj. + condicional)."},
+    {q:"Cortesía formal: para pedir algo educadamente en una carta, escribes…",
+     opt:["¿Me ayudas?","¿Podría usted ayudarme con este asunto?","Ayúdame ya."],c:1,
+     mal:"El condicional de cortesía ('podría') suaviza la petición y encaja en el registro formal. '¿Me ayudas?' es informal y 'ayúdame ya' es una orden brusca.",
+     bien:"El condicional de cortesía ('podría') es lo adecuado en registro formal."},
+    {q:"«Ojalá <span class='hueco'></span> aquí ahora mismo» (deseo poco probable).",
+     opt:["estás","estuvieras","estarás"],c:1,
+     mal:"'Ojalá' + deseo poco probable o irreal pide <b>imperfecto de subjuntivo: estuvieras</b>. Con un deseo realizable se usaría presente de subjuntivo ('ojalá estés bien').",
+     bien:"'Ojalá' + deseo improbable = imperfecto de subjuntivo: estuvieras."}
+  ],
+  teoria2:[
+    {t:"¿Cómo se nota el registro en español?",h:"<b>Formal</b>: usted/ustedes, fórmulas de cortesía (<span class='ej'>le agradecería que…, conviene señalar que…</span>), nada de coloquialismos. <b>Medio</b>: claro y correcto, puede usar 'tú', sin jerga (artículo, reseña). <b>Informal</b>: tú, exclamaciones, frases cortas, coloquialismos (<span class='ej'>¡qué fuerte!, meter la pata, estar flipando</span>).<br><br>Tu repertorio:<br><b>Formal</b> → <span class='ej'>le agradecería que…, conviene señalar que…, poner de manifiesto, dar lugar a…</span><br><b>Informal</b> → <span class='ej'>¡madre mía!, meter la pata, echar una mano, quedarse de piedra, pasar de algo</span>"}
+  ],
+  registro:[
+    {frase:"Le agradecería que tuviera en cuenta mi solicitud.",c:0,
+     mal:"'Le agradecería que' + usted + subjuntivo es fórmula de cortesía: <b>formal</b>, propio de una carta a una institución.",
+     bien:"Formal: usted + fórmula de cortesía."},
+    {frase:"¡Madre mía, me quedé de piedra cuando lo vi!",c:2,
+     mal:"Exclamación + coloquialismo ('quedarse de piedra'): <b>informal</b>, propio de un diario o un mensaje a un amigo.",
+     bien:"Informal: exclamación y expresión coloquial."},
+    {frase:"En este artículo reflexionaré sobre los hábitos de los jóvenes.",c:1,
+     mal:"Correcto y accesible, sin fórmulas protocolarias ni coloquialismos: <b>medio</b>, típico del artículo de opinión.",
+     bien:"Medio: cuidado y claro."},
+    {frase:"Conviene señalar que esta medida dará lugar a importantes cambios.",c:0,
+     mal:"'Conviene señalar que' y 'dar lugar a' son fórmulas <b>formales</b>, propias de un discurso o texto institucional.",
+     bien:"Formal: fórmulas impersonales y elevadas."}
+  ],
+  eligeUna:{titulo:"Sube el registro",
+    intro:"Esta frase es demasiado informal para una carta formal. Elige la versión que la convierte en formal sin cambiar el significado.",
+    enunciado:"Original (informal): «Oye, ¿me puedes echar una mano con esto cuanto antes?»",
+    opt:["¿Me echas un cable ya?","Le agradecería que me prestara su ayuda con este asunto a la mayor brevedad.","Ayúdame rápido, porfa."],c:1,
+    mal:"Solo la segunda elimina el coloquialismo ('echar una mano'), usa usted ('le… su') y una fórmula de cortesía ('a la mayor brevedad'). Las otras siguen siendo informales.",
+    bien:"Usa usted, fórmula de cortesía y elimina el coloquialismo: es formal."},
+  vocabHueco:{area:"Experiencias",
+    texto:"Viajar a un país desconocido suele producir un fuerte ___1___ durante los primeros días: todo resulta extraño. Sin embargo, con el tiempo se convierte en una ___2___ que nos transforma y que, curiosamente, nos ayuda a comprender mejor nuestras propias ___3___ y de dónde venimos.",
+    soluciones:[
+      {opciones:["choque cultural","alojamiento","desarrollo","brecha salarial","patrimonio","bienestar"],c:0,mal:"Sentir que todo es extraño al llegar a otro país es el 'choque cultural'.",bien:"El choque cultural es ese impacto inicial ante otra cultura."},
+      {opciones:["precariedad","experiencia enriquecedora","brecha","carga de trabajo","escapada","medida"],c:1,mal:"El 'sin embargo… nos transforma' pide algo positivo: 'experiencia enriquecedora'.",bien:"Enriquecedora aporta el matiz positivo que pide el contraste."},
+      {opciones:["raíces","medidas","expectativas","energías","fuentes","brechas"],c:0,mal:"'Comprender nuestras propias ___' + 'de dónde venimos' apunta a 'raíces'.",bien:"Las raíces son tus orígenes culturales."}
+    ]},
+  chat:{tema:"una experiencia que te marcó",
+    saludo:"Cuéntame una experiencia que te marcara: un viaje, un momento especial o algo que cambiara tu forma de ver las cosas. ¿Qué pasó exactamente?",
+    claves:["viaj","fui","fue","visit","recuerd","pasó","ocurr","sentí","marc","especial","primera vez","moment","lugar","cuando","emoci"],
+    repreguntas:[
+      "¿Cómo te sentías en ese momento? Descríbelo con detalle.",
+      "¿Qué fue lo más sorprendente o inesperado de esa experiencia?",
+      "¿Cómo cambió eso tu manera de ver algo?"
+    ],
+    nota:"Dicta tu respuesta pulsando el botón de micrófono. No es una nota: es para practicar la expresión oral."}
+ },
+
+ { fase:"C", tag:"tC", crit:"C",
+  titulo:"Semana 4 · El imperativo y el tipo de texto",
+  meta:"Cierre de la gramática (el imperativo) + reconocer y elegir el tipo de texto.",
+  intro:"Última semana de gramática intensiva: el imperativo, que es justo la marca del folleto y los textos que llaman a la acción. Después, repasas los seis tipos de texto y ordenas las partes de un discurso.",
+  teoria:[
+    {t:"El imperativo: dar órdenes, instrucciones y consejos",h:"Sirve para mandar, aconsejar o invitar: es la marca del <b>folleto</b> y de los textos apelativos (<span class='ej'>¡Apúntate!, descubre, no te lo pierdas</span>).<br><br>Cuidado con el <b>negativo</b>: usa el presente de subjuntivo (<span class='ej'>habla → no hables; ven → no vengas; haz → no hagas</span>). Y con 'usted' siempre va en forma de subjuntivo (<span class='ej'>hable, venga, haga</span>)."}
+  ],
+  conjug:[
+    {verbo:"Imperativo (tú / usted / vosotros)",
+     formas:[["hablar","habla (tú) · hable (usted) · hablad (vosotros)"],["comer","come · coma · comed"],["irregulares (tú)","di, haz, ve, pon, sal, ten, ven (afirmativo)"]],
+     nota:"En negativo se usa el presente de subjuntivo: <span class='ej'>no hables, no comáis, no vengas, no lo dejes</span>. Por eso te sirve lo que repasaste en la semana 2."}
+  ],
+  test:[
+    {q:"Imperativo en un folleto: «¡No <span class='hueco'></span> esta oportunidad!»",
+     opt:["dejes","dejas","dejarás"],c:0,
+     mal:"El imperativo negativo se forma con el <b>presente de subjuntivo: no dejes</b>. 'No dejas' es indicativo (no es una orden). Muy útil en folletos y textos apelativos.",
+     bien:"Imperativo negativo = presente de subjuntivo: no dejes."},
+    {q:"¿Cuál es el imperativo de 'tú' correcto para un folleto turístico?",
+     opt:["Descubres nuestra ciudad","Descubre nuestra ciudad","Descubrir nuestra ciudad"],c:1,
+     mal:"El imperativo afirmativo de 'tú' es <b>descubre</b> (sin -s). 'Descubres' es presente de indicativo y 'descubrir' es el infinitivo.",
+     bien:"Imperativo de tú: 'descubre' (sin -s)."},
+    {q:"Fecha arriba, 'Querido diario:', primera persona y despedida. ¿Qué tipo de texto es?",
+     opt:["Artículo","Diario personal","Reseña"],c:1,
+     mal:"La fecha, 'Querido diario:' y la despedida son marcas del <b>diario personal</b>, informal e íntimo.",
+     bien:"Fecha + 'Querido diario:' + despedida = diario personal."},
+    {q:"Exordio–narratio–argumentatio–peroratio, se dirige al público y usa preguntas retóricas. Es un…",
+     opt:["Discurso","Folleto","Entrevista"],c:0,
+     mal:"Esa estructura retórica y el dirigirse al público definen el <b>discurso</b>, formal.",
+     bien:"Estructura retórica + dirigirse al público = discurso."},
+    {q:"Quieres convencer a jóvenes de apuntarse a un viaje: título llamativo, secciones, imperativo, datos de contacto. ¿Qué eliges?",
+     opt:["Reseña","Folleto","Diario"],c:1,
+     mal:"Propósito apelativo, subtítulos, imperativo ('¡Apúntate!') y datos de contacto son propios del <b>folleto</b>.",
+     bien:"Apelativo + imperativo + contacto = folleto."},
+    {q:"En una reseña, ¿qué NO debes hacer?",
+     opt:["Conectar con una cuestión global","Contar el final de la obra","Usar vocabulario preciso"],c:1,
+     mal:"En la <b>reseña</b> valoras sin <b>destripar el final</b>. Sí debes opinar con ejemplos y léxico preciso.",
+     bien:"Nunca se cuenta el final en una reseña."}
+  ],
+  teoria2:[
+    {t:"Los seis tipos de un vistazo",h:"<b>Artículo</b> (medio): título + autor, tesis–argumentos–conclusión, 1ª persona.<br><b>Diario personal</b> (informal): fecha, 'Querido diario:', sentimientos, despedida.<br><b>Discurso</b> (formal): saludo y agradecimientos, exordio–narratio–argumentatio–peroratio, se dirige al público, preguntas retóricas.<br><b>Entrevista</b> (medio): introducción, diálogo con interlocutores marcados (–), despedida.<br><b>Folleto</b> (apelativo): título y subtítulos, secciones, imperativo, datos de contacto.<br><b>Reseña</b> (formal-medio): obra+género+opinión, análisis con ejemplos, recomendación final sin destripar el final."}
+  ],
+  ordena:{titulo:"Ordena un discurso",
+    intro:"Estas tres partes de un discurso están desordenadas. ¿Qué orden respeta su estructura?",
+    partes:["A) «¿De verdad podemos seguir ignorando este problema?» (argumentos)","B) «Muchas gracias a todos por estar hoy aquí.» (saludo)","C) «En definitiva, está en nuestras manos cambiarlo. ¡Actuemos juntos!» (cierre)"],
+    opt:["A → B → C","B → A → C","C → B → A"],c:1,
+    mal:"El discurso abre con el <b>saludo</b> (B), desarrolla los <b>argumentos</b> (A) y termina con la <b>peroratio</b> o cierre que llama a la acción (C): B → A → C.",
+    bien:"Saludo (B) → argumentos (A) → cierre que llama a la acción (C)."},
+  vocabHueco:{area:"Ingenio humano",
+    texto:"Vivimos en plena revolución digital. Gracias a internet, un vídeo cualquiera puede ___1___ en cuestión de horas y llegar a millones de personas. La tecnología avanza ___2___ y, para no quedarse atrás ni perder oportunidades, hoy resulta imprescindible ___3___ de las últimas novedades.",
+    soluciones:[
+      {opciones:["viralizarse","contrastar","mitigar","preservar","conciliar","ascender"],c:0,mal:"Difundirse masivamente en horas es 'viralizarse'.",bien:"Viralizarse es difundirse masiva y rápidamente."},
+      {opciones:["a pasos agigantados","de vez en cuando","a tiempo parcial","de la mano","sin remedio","entre líneas"],c:0,mal:"'Avanza ___' pide una expresión de rapidez: 'a pasos agigantados'.",bien:"'A pasos agigantados' = muy rápidamente."},
+      {opciones:["aislarse","estar al día","ser despedido","meter la pata","agotar recursos","perder el tiempo"],c:1,mal:"'Para no quedarse atrás' pide 'estar al día': mantenerse actualizado.",bien:"Estar al día es mantenerse actualizado."}
+    ]},
+  chat:{tema:"el arte, la música o la creatividad",
+    saludo:"Hablemos de lo que te gusta escuchar, ver o crear. ¿Qué tipo de música, cine o arte te gusta? ¿Por qué te atrae?",
+    claves:["música","canción","grupo","artista","película","serie","libro","arte","gusta","escuch","veo","leo","sigo","concierto","teatro","diseño","fotograf","creativ"],
+    repreguntas:[
+      "¿Hay algún artista, grupo o director que te haya marcado especialmente? ¿Por qué?",
+      "¿Qué fue lo último que viste, escuchaste o leíste que te impactó?",
+      "Si pudieras dedicarte a algo creativo, ¿qué elegirías?"
+    ],
+    nota:"Dicta tu respuesta pulsando el botón de micrófono. No es una nota: es para practicar la expresión oral."}
+ },
+
+ { fase:"B", tag:"tB", crit:"B",
+  titulo:"Semana 5 · Justificar las ideas con ejemplos",
+  meta:"El Criterio B premia ideas desarrolladas, no afirmaciones sueltas.",
+  intro:"La cadena que entrena el Criterio B: afirmación → razón → ejemplo concreto. Hoy la reconoces, la completas y la emparejas, sin escribir textos largos.",
+  teoria:[
+    {t:"La cadena del buen párrafo",h:"<b>1. Afirmas</b> una idea. <b>2. La justificas</b> con una razón (<span class='ej'>ya que…, dado que…</span>). <b>3. La ilustras</b> con un ejemplo concreto (<span class='ej'>por ejemplo, un caso claro es…</span>). Saltarse el ejemplo es el error más común: deja la idea en el aire."}
+  ],
+  test:[
+    {q:"¿Cuál de estas frases está completamente desarrollada (afirmación + razón + ejemplo)?",
+     opt:["El deporte es bueno para la salud.","El deporte mejora la salud porque libera tensión; por ejemplo, quienes practican un deporte de equipo afirman dormir mejor en época de exámenes.","El deporte y la salud van juntos siempre."],c:1,
+     mal:"Solo la b tiene las tres partes: afirma, justifica (porque libera tensión) e ilustra (ejemplo concreto). Las otras se quedan en la afirmación.",
+     bien:"Tiene las tres partes: afirmación + razón + ejemplo concreto."},
+    {q:"A esta idea le falta un paso: «Las redes pueden ser dañinas porque aíslan a los jóvenes». ¿Qué le falta?",
+     opt:["La afirmación","La razón","El ejemplo concreto"],c:2,
+     mal:"Tiene afirmación (son dañinas) y razón (aíslan), pero le falta el <b>ejemplo concreto</b> que lo demuestre.",
+     bien:"Le falta el ejemplo concreto que ilustre la razón."},
+    {q:"¿Cuál es un buen ejemplo y no una mera repetición de la idea?",
+     opt:["La contaminación es mala porque contamina mucho.","La contaminación daña la salud; por ejemplo, en ciudades con mucho tráfico aumentan los casos de asma infantil.","La contaminación es un problema muy problemático."],c:1,
+     mal:"Un ejemplo debe aportar un caso concreto y verificable (el asma infantil en ciudades con tráfico), no repetir la idea con otras palabras. Las opciones a y c solo reformulan la afirmación sin probar nada.",
+     bien:"Aporta un caso concreto y verificable, no repite la idea."}
+  ],
+  empareja:{titulo:"Empareja idea y ejemplo",
+    intro:"¿Qué ejemplo sostiene mejor esta afirmación?",
+    afirm:"El turismo masivo puede dañar las ciudades.",
+    opt:["porque a todo el mundo le gusta viajar","un caso claro es Venecia, donde los vecinos han ido abandonando el centro","y además es muy caro"],c:1,
+    mal:"El mejor ejemplo es concreto y verificable: Venecia y la marcha de sus vecinos. 'A todo el mundo le gusta viajar' es una generalización; el precio no sostiene la idea del daño a la ciudad.",
+    bien:"Venecia es un ejemplo concreto que demuestra el daño del turismo masivo."},
+  vocabHueco:{area:"Compartir el planeta",
+    texto:"El cambio climático es uno de los mayores retos de nuestra época. Para frenarlo, los gobiernos deben ___1___ urgentes y apostar de forma decidida por las ___2___, que son limpias e inagotables. De lo contrario, seguiremos ___3___ los recursos del planeta a un ritmo que las próximas generaciones no podrán sostener.",
+    soluciones:[
+      {opciones:["tomar medidas","construir puentes","echar una mano","meter la pata","perder el tiempo","dar lugar"],c:0,mal:"'___ urgentes' pide 'tomar medidas': actuar con decisiones concretas.",bien:"Tomar medidas es adoptar acciones concretas."},
+      {opciones:["energías renovables","brechas salariales","raíces","escapadas","expectativas","actuaciones"],c:0,mal:"'Limpias e inagotables' describe las 'energías renovables' (solar, eólica…).",bien:"Las energías renovables son limpias e inagotables."},
+      {opciones:["agotando","mitigando","conciliando","preservando","fortaleciendo","contrastando"],c:0,mal:"'Seguiremos ___ los recursos' (consecuencia negativa) pide 'agotando'.",bien:"Agotar es consumir hasta acabar los recursos."}
+    ]},
+  chat:{tema:"redes sociales: ¿bien o mal?",
+    saludo:"Dame tu opinión: ¿crees que las redes sociales hacen más bien o más mal? Explícame por qué y pon un ejemplo concreto.",
+    claves:["redes","instagram","tiktok","twitter","whatsapp","social","opinión","creo","pienso","porque","ejemplo","bien","mal","positivo","negativo","jóvenes","adicción","comunicar","conectar","peligro"],
+    repreguntas:[
+      "¿Puedes darme un ejemplo concreto de lo que acabas de decir?",
+      "¿Y cuál sería el argumento contrario? ¿Ves algún aspecto positivo (o negativo)?",
+      "¿Cómo crees que afectan las redes a los jóvenes de tu edad en particular?"
+    ],
+    nota:"Dicta tu respuesta pulsando el botón de micrófono. No es una nota: es para practicar la expresión oral."}
+ },
+
+ { fase:"B", tag:"tB", crit:"B",
+  titulo:"Semana 6 · Matizar y estructurar las ideas",
+  meta:"Distingue una idea plana de una sólida, y aprende a ordenar y matizar.",
+  intro:"Tener ideas no basta: hay que ordenarlas y darles peso. Esta semana, sin escribir textos, reconoces qué respuestas convencen más y por qué: el matiz, el orden y la perspectiva propia.",
+  teoria:[
+    {t:"Tres rasgos de una idea sólida",h:"<b>Matiz</b>: no todo es blanco o negro (<span class='ej'>no es perjudicial en sí mismo; sin embargo…</span>). <b>Orden</b>: introducir → desarrollar → cerrar con una conclusión propia. <b>Perspectiva</b>: aportar un punto de vista, no repetir un tópico. Conectores: <span class='ej'>por una parte… por otra, cabe destacar, en definitiva, no obstante</span>."}
+  ],
+  test:[
+    {q:"¿Cuál de estas conclusiones convence más?",
+     opt:["En conclusión, el móvil es malo para todos.","En definitiva, el móvil no es bueno ni malo en sí: todo depende del uso responsable que cada persona haga de él.","Para terminar, ya he dicho que el móvil es malo."],c:1,
+     mal:"La b reconoce un matiz ('depende del uso') y aporta una perspectiva propia. Las otras repiten un juicio absoluto y plano.",
+     bien:"Reconoce el matiz ('depende del uso'): es una valoración propia, no un tópico."},
+    {q:"¿Qué frase ordena mejor un argumento?",
+     opt:["El reciclaje es bueno y también es bueno y ayuda.","Por una parte, el reciclaje reduce residuos; por otra, conciencia a la población; en definitiva, es una medida pequeña pero significativa.","El reciclaje, reciclar, reduce."],c:1,
+     mal:"La b usa una estructura clara (por una parte… por otra… en definitiva) que guía al lector. Las otras repiten palabras sin avanzar.",
+     bien:"'Por una parte… por otra… en definitiva' da orden y progresión."},
+    {q:"Quieres discrepar sonando maduro. ¿Cuál eliges?",
+     opt:["Eso es una tontería.","No comparto del todo esa idea, ya que ignora un factor importante: el coste social.","Estás equivocado y punto."],c:1,
+     mal:"Discrepar con matiz y una razón ('no comparto del todo… ya que…') convence. Descalificar resta seriedad.",
+     bien:"Discrepa con matiz y argumento, no con descalificación."},
+    {q:"¿Qué versión muestra perspectiva propia y no un tópico?",
+     opt:["La tecnología ha cambiado el mundo, eso lo sabe todo el mundo.","Aunque la tecnología nos conecta, conviene preguntarse si esa conexión constante no nos está volviendo, paradójicamente, más solitarios.","La tecnología es muy importante hoy en día."],c:1,
+     mal:"La b plantea una tensión propia (conexión frente a soledad). Las otras son tópicos vacíos.",
+     bien:"Plantea una tensión propia (conexión vs. soledad): eso es perspectiva."}
+  ],
+  escribe:{titulo:"Mejora una idea plana",
+    intro:"Aquí tienes una afirmación tajante y pobre. Reescríbela en 1-2 frases dándole madurez: añade un matiz (con 'aunque' o 'no… en sí mismo') y un conector que lo rebata. Luego compárala con el modelo.",
+    prompt:"Frase plana: «Los videojuegos son malos.» — Reescríbela con matiz:",
+    pistas:[{nombre:"un matiz ('aunque' o 'no… en sí mismo')",claves:["aunque","en sí","no son malos","no es malo","depende"]},{nombre:"un conector de contraste ('sin embargo', 'no obstante')",claves:["sin embargo","no obstante","pero","ahora bien"]}],
+    modelo:"Los videojuegos no son perjudiciales en sí mismos; sin embargo, su uso excesivo puede afectar al descanso y al rendimiento escolar si no se establecen límites claros.",
+    nota:"Compara: la versión madura evita el juicio absoluto ('no… en sí mismos'), reconoce un matiz y lo desarrolla con 'sin embargo'. Eso es lo que sube el Criterio B."},
+  vocabHueco:{area:"Identidades",
+    texto:"Cada cultura posee una ___1___ que conviene ___2___ y transmitir a las nuevas generaciones; cuando una tradición desaparece, también se pierde una forma única de ver el mundo, algo profundamente ___3___ para toda la humanidad.",
+    soluciones:[
+      {opciones:["herencia cultural","carga de trabajo","brecha salarial","escapada","precariedad","expectativa"],c:0,mal:"'Cada cultura posee una ___' pide 'herencia cultural': el legado que se transmite.",bien:"La herencia cultural es el legado que se transmite."},
+      {opciones:["preservar","agotar","viralizar","ascender","imponer","ser despedido"],c:0,mal:"'Conviene ___ y transmitir' una herencia valiosa pide 'preservar': protegerla.",bien:"Preservar es proteger y mantener."},
+      {opciones:["beneficioso","perjudicial","imprescindible","sostenible","enriquecedor","renovable"],c:1,mal:"Perder algo valioso es 'profundamente ___' negativo: 'perjudicial' (dañino).",bien:"Perjudicial = dañino, el matiz negativo que pide perder algo valioso."}
+    ]},
+  chat:{tema:"inteligencia artificial: ¿oportunidad o riesgo?",
+    saludo:"¿Crees que la inteligencia artificial es buena o mala para los estudiantes? Intenta reconocer las dos caras antes de dar tu opinión.",
+    claves:["inteligencia","artificial","ia","chatgpt","tecnología","algoritmo","robots","datos","creo","pienso","por una parte","por otra","aunque","sin embargo","depende","ventaja","desventaja","riesgo","oportunidad"],
+    repreguntas:[
+      "¿Puedes reconocer también el lado contrario de lo que acabas de decir?",
+      "¿Cómo usas tú la IA en tu día a día? ¿Crees que eso es positivo?",
+      "¿Qué harías tú para que los estudiantes usaran la IA de forma responsable?"
+    ],
+    nota:"Dicta tu respuesta pulsando el botón de micrófono. No es una nota: es para practicar la expresión oral."}
+ },
+
+ { fase:"I", tag:"tI", crit:"INT",
+  titulo:"Semana 7 · Integración: planificar una respuesta",
+  meta:"Juntamos A + C + B sobre una tarea real de la Prueba 1, sin escribir el texto entero.",
+  intro:"Esta semana planificas, no rellenas folios. Eliges tipo de texto y registro (C), defines tu idea y un ejemplo (B) y revisas la lengua (A). Planificar bien es media nota.",
+  teoria:[
+    {t:"Tu rutina de 4 pasos antes de escribir",h:"<b>1.</b> ¿Qué tipo de texto y registro pide la tarea? (C)<br><b>2.</b> ¿Cuál es mi idea principal y qué ejemplo la sostiene? (B)<br><b>3.</b> ¿Qué estructura sigue ese tipo de texto? (C)<br><b>4.</b> Al revisar: pasados, ser/estar, presente de subjuntivo, acentos. (A)"}
+  ],
+  test:[
+    {q:"Tarea: «Tu instituto plantea prohibir el móvil en clase. Escribe un texto para el periódico escolar en el que defiendas tu postura ante toda la comunidad educativa.» ¿Qué tipo de texto encaja mejor?",
+     opt:["Diario personal informal","Artículo de opinión","Entrevista"],c:1,
+     mal:"Un texto para el periódico escolar que defiende una postura ante un público es un <b>artículo de opinión</b>: título, tesis, argumentos y conclusión, en registro medio. El diario es íntimo; la entrevista es un diálogo, no una defensa argumentada.",
+     bien:"Defender una postura en el periódico escolar = artículo de opinión."},
+    {q:"Para el Criterio B necesitas una tesis con ejemplo. ¿Cuál sirve mejor?",
+     opt:["El móvil es malo, todos lo sabemos.","El móvil distrae más de lo que ayuda; por ejemplo, varios estudios señalan que el rendimiento baja cuando el teléfono está sobre la mesa, aunque no se use.","Hay muchos móviles en clase."],c:1,
+     mal:"La b afirma una tesis, la justifica y la ilustra con un ejemplo concreto (el dato de los estudios). Las otras son afirmaciones vacías.",
+     bien:"Tesis + justificación + ejemplo concreto."},
+    {q:"Quieres reconocer la postura contraria antes de rebatirla (madurez, Criterio B). ¿Qué construcción usarías?",
+     opt:["'Es evidente que…' + indicativo","'Aunque sea cierto que… , …' (concesión)","'Siempre…' + presente"],c:1,
+     mal:"Para reconocer la otra postura y luego matizarla se usa una <b>concesión</b>: 'Aunque sea cierto que el móvil tiene usos didácticos, …'. Eso demuestra que ves las dos caras, lo que sube el Criterio B.",
+     bien:"La concesión ('aunque sea cierto que…') reconoce la otra postura antes de rebatirla."}
+  ],
+  escribe:{titulo:"Escribe tu apertura",
+    intro:"Practica el arranque de tu artículo en 2-3 frases: una tesis clara + una concesión + el conector que la rebate. No es un texto entero, solo el inicio. Luego compáralo con el modelo.",
+    prompt:"Escribe aquí tu apertura (tesis + 'aunque sea cierto que…' + 'sin embargo / no obstante…'):",
+    pistas:[{nombre:"una concesión ('aunque sea cierto que…')",claves:["aunque","si bien","es cierto que","pese a","a pesar"]},{nombre:"un conector que la rebata ('sin embargo', 'no obstante')",claves:["sin embargo","no obstante","ahora bien","pero"]}],
+    modelo:"El móvil se ha convertido en el principal enemigo de la concentración en las aulas. Aunque sea cierto que puede ser una herramienta útil para buscar información, no obstante, su presencia constante fragmenta la atención y empobrece el aprendizaje.",
+    nota:"Fíjate en la estructura: tesis tajante → concesión ('aunque sea cierto que…', con subjuntivo) → rebatir con 'no obstante'. Es un arranque maduro y típico del artículo de opinión."},
+  vocabHueco:{area:"Compartir el planeta",
+    texto:"El debate sobre la tecnología nos afecta a todos: estamos en el mismo barco. Si las instituciones ___1___ urgentes y la ciudadanía aprende a ___2___ la información que recibe, podremos ___3___ entre posturas distintas; de lo contrario, corremos el riesgo de ___4___ un recurso tan valioso como la atención.",
+    soluciones:[
+      {opciones:["toman medidas","construyen puentes","echan una mano","se aíslan","ascienden","empatizan"],c:0,mal:"'___ urgentes' pide 'tomar medidas': adoptar decisiones concretas.",bien:"Tomar medidas es adoptar acciones concretas."},
+      {opciones:["contrastar","agotar","viralizar","mitigar","preservar","transmitir"],c:0,mal:"'___ la información que recibe' pide 'contrastar': comprobarla comparando fuentes.",bien:"Contrastar la información es verificarla comparando fuentes."},
+      {opciones:["construir puentes","agotar recursos","perder el tiempo","meter la pata","quedarse de piedra","ser despedido"],c:0,mal:"'___ entre posturas distintas' pide 'construir puentes': tender entendimiento.",bien:"Construir puentes es fomentar el entendimiento."},
+      {opciones:["agotar","preservar","fortalecer","mantener viva","crear conciencia","mitigar"],c:0,mal:"'Riesgo de ___ un recurso valioso' (consecuencia negativa) pide 'agotar': consumirlo hasta acabarlo.",bien:"Agotar es consumir hasta acabar un recurso."}
+    ]},
+  chat:{tema:"el móvil en el aula",
+    saludo:"Cuéntame: ¿cómo usas el móvil en tu día a día, dentro y fuera del colegio? ¿Crees que debería prohibirse en clase?",
+    claves:["móvil","teléfono","clase","colegio","prohib","usar","uso","distrae","ayuda","profe","estudio","redes","aplicacion","pantalla","tiempo","necesario","permitir","aula"],
+    repreguntas:[
+      "¿Puedes darme un ejemplo concreto de cuándo el móvil te ha ayudado o perjudicado en clase?",
+      "¿Qué opinarían tus compañeros sobre esto? ¿Estarían de acuerdo contigo?",
+      "¿Qué medida concreta propondrías tú para gestionar el móvil en el aula?"
+    ],
+    nota:"Dicta tu respuesta pulsando el botón de micrófono. No es una nota: es para practicar la expresión oral."}
+ },
+
+ { fase:"I", tag:"tI", crit:"INT",
+  titulo:"Semana 8 · Lista de control y autoevaluación",
+  meta:"Cierras el verano sabiendo dónde estás. Listo para DP2.",
+  intro:"Última semana. Repasas con la lista de control de la Prueba 1 y una autoevaluación honesta por criterio. Lo que marques alimenta tu informe: no es una nota, es un mapa de por dónde empezar en septiembre.",
+  teoria:[
+    {t:"La lista de control de la Prueba 1",h:"Antes de entregar: <b>(C)</b> ¿he elegido el tipo de texto adecuado y mantenido el registro? <b>(B)</b> ¿he justificado mis ideas con ejemplos y matices? <b>(A)</b> ¿he revisado pasados, ser/estar, presente de subjuntivo y acentos? Si las tres respuestas son sí, vas camino del 7."}
+  ],
+  test:[
+    {q:"Repaso final (A): «Espero que todos <span class='hueco'></span> un buen verano.»",
+     opt:["tienen","tengan","tendrán"],c:1,
+     mal:"'Espero que' expresa deseo → presente de subjuntivo: <b>tengan</b> (irregular de tener).",
+     bien:"'Espero que' (deseo) + presente de subjuntivo: tengan."},
+    {q:"Repaso final (C): para una carta de queja formal al ayuntamiento, el registro debe ser…",
+     opt:["Informal, con coloquialismos","Formal, con usted y fórmulas de cortesía","Medio, como un artículo"],c:1,
+     mal:"Una queja a una institución exige registro <b>formal</b>: usted, fórmulas de cortesía y nada de coloquialismos.",
+     bien:"Formal: usted y fórmulas de cortesía."}
+  ],
+  auto:[
+    {crit:"A · Lengua",txt:"Distingo indefinido e imperfecto y conjugo los irregulares más comunes."},
+    {crit:"A · Lengua",txt:"Uso ser/estar y el presente de subjuntivo con cierta seguridad."},
+    {crit:"A · Lengua",txt:"Reviso la acentuación y las tildes diacríticas antes de entregar."},
+    {crit:"C · Registro",txt:"Reconozco si un texto es formal, medio o informal y sé modular el mío."},
+    {crit:"C · Tipo de texto",txt:"Conozco la estructura de los seis tipos de texto y elijo el adecuado."},
+    {crit:"B · Mensaje",txt:"Justifico mis ideas con razones y ejemplos concretos."},
+    {crit:"B · Mensaje",txt:"Matizo y ordeno mis argumentos en lugar de afirmar de forma tajante."}
+  ],
+  vocabHueco:{area:"Ingenio humano",
+    texto:"En un mundo saturado de información, ya no basta con leer mucho. La capacidad de ___1___ la información antes de creerla y de ___2___ de lo que ocurre a nuestro alrededor se ha vuelto hoy ___3___ para cualquier estudiante que aspire a triunfar en DP2 y, más adelante, en la universidad.",
+    soluciones:[
+      {opciones:["contrastar","agotar","aislar","conciliar","mitigar","ascender"],c:0,mal:"'___ la información antes de creerla' pide 'contrastar': comparar fuentes.",bien:"Contrastar la información es verificarla comparando fuentes."},
+      {opciones:["estar al día","ser despedido","meter la pata","perder el tiempo","quedarse de piedra","echar una mano"],c:0,mal:"Junto a 'contrastar la información' lo coherente es 'estar al día'.",bien:"Estar al día es mantenerse actualizado."},
+      {opciones:["imprescindible","perjudicial","aburrido","sostenible","renovable","enriquecedor"],c:0,mal:"'Se ha vuelto hoy ___ para triunfar' pide 'imprescindible'.",bien:"Imprescindible es absolutamente necesario."}
+    ]},
+  chat:{tema:"tus planes y objetivos para DP2",
+    saludo:"Última charla del verano. ¿Qué quieres conseguir en DP2 y qué harías de forma diferente respecto al curso pasado?",
+    claves:["dp2","año","curso","quiero","espero","ojalá","haría","mejorar","nota","esfuerzo","asignatura","estudiar","tiempo","organizar","objetivo","meta","diferente","aprender","conseguir","plan"],
+    repreguntas:[
+      "¿En qué asignatura crees que vas a tener que esforzarte más, y por qué?",
+      "¿Qué cambiarías de tu forma de estudiar respecto al año pasado?",
+      "Si todo va bien, ¿qué te gustaría hacer después del DP?"
+    ],
+    nota:"Dicta tu respuesta pulsando el botón de micrófono. ¡Buen trabajo este verano!"}
+ }
+
+];
+
+</script>
+<script>
+/* Lógica — render, progreso (localStorage), grabación, informe */
+
+const KEY = "repasoEspB_v2";
+let estado = cargar();
+let semActiva = estado.ultimaSemana || 0;
+
+function cargar(){ try{ return JSON.parse(localStorage.getItem(KEY)) || nuevo(); }catch(e){ return nuevo(); } }
+function nuevo(){ return {alumno:"", completadas:[], respuestas:{}, auto:{}, ultimaSemana:0}; }
+function guardar(){ try{ localStorage.setItem(KEY, JSON.stringify(estado)); }catch(e){} }
+
+function pintarNav(){
+  const nav=document.getElementById('navSemanas'); nav.innerHTML="";
+  let activeBtn=null;
+  SEMANAS.forEach((s,i)=>{
+    const b=document.createElement('button');
+    const hecha=estado.completadas.includes(i);
+    b.innerHTML=`S${i+1} ${hecha?'<span class="done">&#10003;</span>':''}`;
+    if(i===semActiva){ b.classList.add('activa'); activeBtn=b; }
+    b.onclick=()=>{ semActiva=i; estado.ultimaSemana=i; guardar(); render(); window.scrollTo(0,0); };
+    nav.appendChild(b);
+  });
+  if(activeBtn){ try{ activeBtn.scrollIntoView({inline:"center",block:"nearest"}); }catch(e){} }
+}
+function pintarProgreso(){
+  const n=estado.completadas.length, pct=Math.round(n/8*100);
+  document.getElementById('barraProg').style.width=pct+"%";
+  document.getElementById('progLabel').textContent=`Semana ${n} de 8 completadas`;
+  document.getElementById('progPct').textContent=pct+"%";
+}
+function faseNombre(c){return {A:"Criterio A · Lengua",C:"Criterio C · Registro y tipo de texto",B:"Criterio B · Mensaje",INT:"Integración · A + C + B"}[c];}
+
+function render(){
+  pintarNav(); pintarProgreso();
+  const s=SEMANAS[semActiva], c=document.getElementById('contenido');
+  let h=`<div class="semana activa">`;
+  h+=`<span class="fase-tag ${s.tag}">${faseNombre(s.crit)}</span>`;
+  h+=`<h2>${s.titulo}</h2><p class="meta">${s.meta}</p>`;
+  h+=`<div class="card"><p style="margin:0">${s.intro}</p></div>`;
+
+  (s.teoria||[]).forEach(t=>h+=`<div class="card"><h3>${t.t}</h3><div class="teoria">${t.h}</div></div>`);
+
+  if(s.conjug){
+    h+=`<div class="card"><h3><span class="n">&#9776;</span>Conjugación y casos problemáticos</h3><div class="conjug">`;
+    s.conjug.forEach(cj=>{
+      h+=`<div class="v">${cj.verbo}</div><table>`;
+      cj.formas.forEach(f=>h+=`<tr><td class="inf">${f[0]}</td><td>${f[1]}</td></tr>`);
+      h+=`</table><div class="nota">${cj.nota}</div>`;
+    });
+    h+=`</div></div>`;
+  }
+  (s.teoria2||[]).forEach(t=>h+=`<div class="card"><h3>${t.t}</h3><div class="teoria">${t.h}</div></div>`);
+
+  if(s.test){
+    h+=`<div class="card"><h3><span class="n">?</span>Pon a prueba lo que sabes</h3>`;
+    s.test.forEach((q,qi)=>h+=tplTest(q,`s${semActiva}_t${qi}`)); h+=`</div>`;
+  }
+  if(s.registro){
+    h+=`<div class="card"><h3><span class="n">?</span>¿Qué registro es?</h3>
+      <p class="sans" style="font-size:13.5px;color:var(--gris);margin:0 0 14px">Lee la frase y decide su registro.</p>`;
+    s.registro.forEach((r,ri)=>h+=tplRegistro(r,`s${semActiva}_r${ri}`)); h+=`</div>`;
+  }
+  if(s.eligeUna) h+=tplCard(s.eligeUna.titulo,"&#9998;",
+    `<p class="sans" style="font-size:13.5px;color:var(--gris);margin:0 0 12px">${s.eligeUna.intro}</p>
+     <div class="teoria">${s.eligeUna.enunciado}</div>`+
+     tplTest({q:"Elige la versión formal:",opt:s.eligeUna.opt,c:s.eligeUna.c,mal:s.eligeUna.mal,bien:s.eligeUna.bien},`s${semActiva}_eu`));
+  if(s.ordena) h+=tplCard(s.ordena.titulo,"&#8645;",
+    `<p class="sans" style="font-size:13.5px;color:var(--gris);margin:0 0 12px">${s.ordena.intro}</p>
+     <div class="teoria">${s.ordena.partes.join("<br>")}</div>`+
+     tplTest({q:s.ordena.titulo,opt:s.ordena.opt,c:s.ordena.c,mal:s.ordena.mal,bien:s.ordena.bien},`s${semActiva}_ord`));
+  if(s.empareja) h+=tplCard(s.empareja.titulo,"&#9783;",
+    `<p class="sans" style="font-size:13.5px;color:var(--gris);margin:0 0 12px">${s.empareja.intro}</p>
+     <div class="teoria"><b>${s.empareja.afirm}</b></div>`+
+     tplTest({q:"¿Qué ejemplo la sostiene mejor?",opt:s.empareja.opt,c:s.empareja.c,mal:s.empareja.mal,bien:s.empareja.bien},`s${semActiva}_emp`));
+
+  if(s.test===undefined && s.crit==="INT" && s.test) {}
+
+  if(s.planElige){
+    h+=`<div class="card"><h3><span class="n">&#9998;</span>${s.planElige.titulo}</h3>
+      <p class="sans" style="font-size:13.5px;color:var(--gris);margin:0 0 12px">${s.planElige.intro}</p>`;
+    s.planElige.items.forEach((it,ii)=>h+=tplTest({q:`Medida ${ii+1}:`,opt:it.opt,c:it.c,mal:it.mal,bien:it.bien},`s${semActiva}_pe${ii}`));
+    h+=`</div>`;
+  }
+
+  // escritura breve (escribe)
+  if(s.escribe) h+=tplEscribe(s.escribe,`s${semActiva}_esc`);
+
+  // vocabulario por hueco (cloze)
+  if(s.vocabHueco) h+=tplCloze(s.vocabHueco,`s${semActiva}_voc`);
+
+  // autoevaluación
+  if(s.auto){
+    h+=`<div class="card"><h3><span class="n">&#9733;</span>Autoevaluación honesta</h3>
+      <p class="sans" style="font-size:13.5px;color:var(--gris);margin:0 0 14px">No es una nota: marca cómo te sientes con cada punto. Tu profesora lo verá para saber por dónde empezar.</p>`;
+    s.auto.forEach((a,ai)=>h+=tplAuto(a,`auto_${ai}`)); h+=`</div>`;
+  }
+
+  // chat de conversación (oralidad)
+  if(s.chat) h+=tplChat(s.chat,`s${semActiva}_chat`);
+
+  const hecha=estado.completadas.includes(semActiva);
+  h+=`<div class="completar"><button class="${hecha?'hecha':''}" onclick="completar(${semActiva})">
+      ${hecha?'&#10003; Semana completada':'He terminado esta semana'}</button></div>`;
+  // navegación anterior / siguiente (visible y táctil, para móvil)
+  const etiqPrev = semActiva===0 ? "‹ Inicio" : `&#8249; Semana ${semActiva}`;
+  const etiqNext = semActiva===7 ? "Fin &#8250;" : `Semana ${semActiva+2} &#8250;`;
+  h+=`<div class="nav-prevnext">
+      <button class="np-btn" ${semActiva===0?'disabled':''} onclick="irSemana(${semActiva-1})">${etiqPrev}</button>
+      <button class="np-btn" ${semActiva===7?'disabled':''} onclick="irSemana(${semActiva+1})">${etiqNext}</button>
+    </div>`;
+  h+=`</div>`;
+  c.innerHTML=h;
+  restaurar();
+  if(SEMANAS[semActiva].chat) pintarChatInicial(`s${semActiva}_chat`);
+}
+function irSemana(i){
+  if(i<0||i>7) return;
+  semActiva=i; estado.ultimaSemana=i; guardar(); render(); window.scrollTo(0,0);
+}
+
+function tplCard(titulo,icono,inner){return `<div class="card"><h3><span class="n">${icono}</span>${titulo}</h3>${inner}</div>`;}
+
+function tplTest(q,id){
+  let o=q.opt.map((t,i)=>`<button class="opt" data-id="${id}" data-i="${i}" data-c="${q.c}" onclick="resp(this)">${t}</button>`).join("");
+  return `<div class="q" id="${id}"><p class="enunciado">${q.q}</p>${o}
+    <div class="feedback" id="${id}_fb"></div>
+    <div data-mal="${esc(q.mal)}" data-bien="${esc(q.bien)}" style="display:none"></div></div>`;
+}
+function tplRegistro(r,id){
+  const L=["Formal","Medio","Informal"];
+  let o=L.map((t,i)=>`<button class="opt" data-id="${id}" data-i="${i}" data-c="${r.c}" onclick="resp(this)">${t}</button>`).join("");
+  return `<div class="q" id="${id}"><p class="enunciado">&laquo;${r.frase}&raquo;</p>${o}
+    <div class="feedback" id="${id}_fb"></div>
+    <div data-mal="${esc(r.mal)}" data-bien="${esc(r.bien)}" style="display:none"></div></div>`;
+}
+
+/* cloze: texto con ___N___ → selects */
+function tplCloze(v,id){
+  let frag=v.texto;
+  v.soluciones.forEach((sol,i)=>{
+    const opts=['<option value="">…</option>'].concat(
+      sol.opciones.map((o,oi)=>`<option value="${oi}">${o}</option>`)).join("");
+    frag=frag.replace(`___${i+1}___`,`<span class="gap"><select id="${id}_${i}" data-c="${sol.c}">${opts}</select></span>`);
+  });
+  let fbs=v.soluciones.map((s,i)=>`<div class="feedback" id="${id}_${i}_fb"></div>
+    <div id="${id}_${i}_data" data-mal="${esc(s.mal)}" data-bien="${esc(s.bien)}" style="display:none"></div>`).join("");
+  return `<div class="card"><h3><span class="n">&#128221;</span>Vocabulario en contexto · ${v.area}</h3>
+    <p class="sans" style="font-size:13.5px;color:var(--gris);margin:0 0 10px">Completa el texto eligiendo la palabra adecuada. Luego comprueba.</p>
+    <div class="cloze" id="${id}">${frag}</div>
+    <button class="btn-check" onclick="checkCloze('${id}',${v.soluciones.length})">Comprobar</button>
+    <div class="cloze-fb">${fbs}</div></div>`;
+}
+function checkCloze(id,n){
+  for(let i=0;i<n;i++){
+    const sel=document.getElementById(`${id}_${i}`);
+    const fb=document.getElementById(`${id}_${i}_fb`);
+    const d=document.getElementById(`${id}_${i}_data`);
+    const c=+sel.dataset.c;
+    if(sel.value===""){ continue; }
+    sel.classList.remove('ok','mal');
+    if(+sel.value===c){ sel.classList.add('ok'); fb.className="feedback show bien"; fb.innerHTML="&#10003; "+unesc(d.dataset.bien); }
+    else{ sel.classList.add('mal'); fb.className="feedback show error"; fb.innerHTML="&#10007; "+unesc(d.dataset.mal); }
+    estado.respuestas[`${id}_${i}`]={i:+sel.value,correcta:+sel.value===c};
+  }
+  guardar();
+}
+
+function tplAuto(a,id){
+  const v=estado.auto[id]||"";
+  const ops=[["bien","Lo domino"],["medio","Más o menos"],["mal","Necesito repasarlo"]];
+  let b=ops.map(([k,t])=>`<button class="opt" style="${v===k?autoStyle(k):''}" onclick="setAuto('${id}','${k}',this)">${t}</button>`).join("");
+  return `<div class="auto-q"><p class="enunciado" style="font-size:15px">${a.txt}</p>
+    <div class="sans" style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);margin:-4px 0 8px">${a.crit}</div>${b}</div>`;
+}
+function autoStyle(k){const col={bien:"var(--ok)",medio:"var(--acento)",mal:"var(--mal)"}[k];return `background:${col};color:#fff;border-color:${col};font-weight:600`;}
+
+/* escritura breve con modelo */
+function tplEscribe(e,id){
+  const guardado=(estado.respuestas[id]&&estado.respuestas[id].txt)||"";
+  const pistas = e.pistas? `data-pistas="${esc(JSON.stringify(e.pistas))}"` : "";
+  return `<div class="card"><h3><span class="n">&#9998;</span>${e.titulo}</h3>
+    <p class="sans" style="font-size:13.5px;color:var(--gris);margin:0 0 10px">${e.intro}</p>
+    <p class="enunciado" style="font-size:15px">${e.prompt}</p>
+    <textarea class="escribe-ta" id="${id}_ta" ${pistas} placeholder="Escribe aquí…" oninput="guardarTexto('${id}',this.value)">${guardado}</textarea>
+    <div class="chat-btns" style="margin-top:8px">
+      <button class="b-send" onclick="comprobarEscribe('${id}')">Comprobar mi texto</button>
+      <button class="btn-check" style="flex:0 0 auto" onclick="document.getElementById('${id}_m').classList.toggle('show')">Ver modelo</button>
+    </div>
+    <div class="feedback" id="${id}_fb"></div>
+    <div class="modelo" id="${id}_m"><span class="et">Modelo orientativo</span>${e.modelo}
+      <div style="margin-top:9px;font-size:13px;color:var(--gris)">${e.nota}</div></div>
+  </div>`;
+}
+function comprobarEscribe(id){
+  const ta=document.getElementById(id+"_ta");
+  const fb=document.getElementById(id+"_fb");
+  const txt=(ta.value||"").trim();
+  if(!txt){ fb.className="feedback show error"; fb.innerHTML="Aún no has escrito nada. Inténtalo y luego compara con el modelo."; return; }
+  const palabras=txt.split(/\s+/).filter(Boolean).length;
+  let pistas=[];
+  try{ pistas=JSON.parse(ta.getAttribute("data-pistas")||"[]"); }catch(e){}
+  const bajo=txt.toLowerCase();
+  let aciertos=[], faltan=[];
+  pistas.forEach(p=>{ (p.claves.some(k=>bajo.includes(k))? aciertos:faltan).push(p.nombre); });
+  let msg=`Has escrito ${palabras} palabra${palabras===1?"":"s"}. `;
+  if(aciertos.length) msg+=`Bien: has incluido ${aciertos.join(" y ")}. `;
+  if(faltan.length) msg+=`Para mejorar, intenta añadir ${faltan.join(" y ")}. `;
+  msg+="Ahora compara tu versión con el modelo y ajústala.";
+  fb.className="feedback show "+(faltan.length?"error":"bien");
+  fb.innerHTML=(faltan.length?"":"&#10003; ")+msg;
+  document.getElementById(id+"_m").classList.add('show');
+  if(!estado.respuestas[id]) estado.respuestas[id]={};
+  estado.respuestas[id].txt=txt; estado.respuestas[id].escrito=true; estado.respuestas[id].comprobado=true; guardar();
+}
+function guardarTexto(id,val){
+  if(!estado.respuestas[id]) estado.respuestas[id]={};
+  estado.respuestas[id].txt=val; estado.respuestas[id].escrito=val.trim().length>0; guardar();
+}
+
+
+/* ---------- chat de oralidad SOLO por dictado (sin IA, por reglas) ---------- */
+function tplChat(c,id){
+  return `<div class="card"><h3><span class="n">&#128172;</span>Conversa: ${c.tema}</h3>
+    <p class="sans" style="font-size:13px;color:var(--gris);margin:0 0 10px">${c.nota}</p>
+    <div class="chat-log" id="${id}_log"></div>
+    <div class="chat-dictado">
+      <div class="dictado-prev" id="${id}_prev">Pulsa «Hablar» y di tu respuesta. Aquí aparecerá lo que el dispositivo entienda.</div>
+      <div class="chat-btns">
+        <button class="b-mic" id="${id}_mic" onclick="dictar('${id}')" title="Hablar">&#127908; Hablar</button>
+        <button class="b-send" id="${id}_send" onclick="enviarChat('${id}')" disabled>Enviar lo dictado</button>
+      </div>
+      <p class="sans dictado-aviso" id="${id}_aviso">Pulsa «Hablar», di tu respuesta con varias frases y vuelve a pulsar para parar. Funciona en Chrome con conexión a internet.</p>
+    </div></div>`;
+}
+function pintarChatInicial(id){
+  const log=document.getElementById(id+"_log"); if(!log||log.dataset.init==="1") return;
+  log.dataset.init="1";
+  const s=SEMANAS[semActiva];
+  burbuja(id,"bot",s.chat.saludo);
+  // si no hay reconocimiento de voz, avisar claramente
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){
+    const av=document.getElementById(id+"_aviso");
+    const mic=document.getElementById(id+"_mic");
+    if(av) av.innerHTML="&#9888; Tu navegador no permite el dictado por voz. Para usar Conversa, abre esta página en <b>Chrome</b> con conexión a internet.";
+    if(mic) mic.disabled=true;
+  }
+}
+function burbuja(id,quien,txt){
+  const log=document.getElementById(id+"_log");
+  const d=document.createElement('div');
+  d.className="msg "+(quien==="bot"?"msg-bot":"msg-yo");
+  d.innerHTML=txt;
+  log.appendChild(d); log.scrollTop=log.scrollHeight;
+}
+/* detección de tiempos verbales por reglas (heurística, no IA) */
+function enviarChat(id){
+  if(recogActivo===id) pararDictado();
+  const prev=document.getElementById(id+"_prev");
+  const txt=(prev.dataset.txt||"").trim();
+  if(!txt) return;
+  burbuja(id,"yo",txt);
+  prev.dataset.txt=""; prev.textContent="Pulsa «Hablar» y di tu respuesta. Aquí aparecerá lo que el dispositivo entienda.";
+  prev.classList.remove("lleno");
+  document.getElementById(id+"_send").disabled=true;
+
+  const s=SEMANAS[semActiva];
+  const claves=(s.chat&&s.chat.claves)||[];
+  const repreguntas=(s.chat&&s.chat.repreguntas)||["¿Puedes contarme algo más?","¿Por qué crees eso?","¿Tienes algún ejemplo?"];
+  const cont=(estado.respuestas[id]&&estado.respuestas[id].turnos)||0;
+
+  // comprobar si la respuesta va por el tema (busca al menos 1 clave en el texto)
+  const bajo=txt.toLowerCase();
+  const encaja=claves.length===0||claves.some(k=>bajo.includes(k));
+
+  let fb="";
+  if(!encaja){
+    fb="Parece que te has ido un poco del tema. Intenta responder sobre: "+s.chat.tema+".";
+  } else if(txt.split(/\s+/).filter(Boolean).length<8){
+    fb="Bien, vas por buen camino. Intenta desarrollar un poco más tu respuesta.";
+  } else {
+    fb="Bien. Sigue así.";
+  }
+
+  burbuja(id,"bot",fb);
+  const repregunta=repreguntas[cont%repreguntas.length];
+  setTimeout(()=>burbuja(id,"bot",repregunta),350);
+
+  if(!estado.respuestas[id]) estado.respuestas[id]={};
+  estado.respuestas[id].turnos=cont+1; estado.respuestas[id].escrito=true; guardar();
+}
+let recog=null, recogActivo=null;
+function dictar(id){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  const prev=document.getElementById(id+"_prev");
+  const mic=document.getElementById(id+"_mic");
+  const send=document.getElementById(id+"_send");
+  if(!SR){ alert("El dictado por voz funciona en Chrome con conexión a internet. Abre la página en Chrome para usar Conversa."); return; }
+
+  // si ya está grabando este, lo paramos (botón actúa como "Parar")
+  if(recogActivo===id){ pararDictado(); return; }
+  // si había otro activo, lo paramos primero
+  if(recog){ try{ recog.onend=null; recog.stop(); }catch(e){} }
+
+  recogActivo=id;
+  let finalTxt = prev.dataset.txt||"";  // conservar lo ya dictado
+  recog=new SR();
+  recog.lang="es-ES";
+  recog.continuous=true;       // no se corta en cada frase
+  recog.interimResults=true;   // muestra lo que va entendiendo en tiempo real
+  mic.classList.add('grabando'); mic.innerHTML="&#9632; Parar";
+
+  recog.onresult=(e)=>{
+    let interim="";
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      const frag=e.results[i][0].transcript;
+      if(e.results[i].isFinal){ finalTxt=(finalTxt?finalTxt+" ":"")+frag.trim(); }
+      else { interim+=frag; }
+    }
+    const mostrado=(finalTxt+" "+interim).trim();
+    prev.dataset.txt=finalTxt;           // solo guardamos lo confirmado
+    prev.textContent=mostrado||"…";
+    prev.classList.add("lleno");
+    if(finalTxt.trim()) send.disabled=false;
+  };
+  recog.onerror=(ev)=>{
+    if(ev.error==="not-allowed"||ev.error==="service-not-allowed"){
+      pararDictado();
+      const av=document.getElementById(id+"_aviso");
+      if(av) av.innerHTML="&#9888; No se ha podido acceder al micrófono. Revisa el permiso del navegador y la conexión.";
+    }
+    // otros errores (p.ej. 'no-speech'): dejamos que onend reinicie
+  };
+  recog.onend=()=>{
+    // si el usuario no ha pulsado parar, reiniciamos (Chrome corta solo tras un tiempo)
+    if(recogActivo===id){ try{ recog.start(); }catch(e){ pararDictado(); } }
+    else { mic.classList.remove('grabando'); mic.innerHTML="&#127908; Hablar"; }
+  };
+  try{ recog.start(); }catch(e){}
+}
+function pararDictado(){
+  const id=recogActivo; recogActivo=null;
+  if(recog){ try{ recog.onend=null; recog.stop(); }catch(e){} }
+  if(id){
+    const mic=document.getElementById(id+"_mic");
+    if(mic){ mic.classList.remove('grabando'); mic.innerHTML="&#127908; Hablar"; }
+  }
+}
+
+
+/* interacción test */
+function resp(btn){
+  const id=btn.dataset.id,i=+btn.dataset.i,c=+btn.dataset.c;
+  const cont=document.getElementById(id);
+  if(cont.dataset.respondida==="1") return;
+  cont.dataset.respondida="1";
+  cont.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+  const fb=document.getElementById(id+"_fb"), d=cont.querySelector('[data-mal]');
+  if(i===c){ btn.classList.add('ok'); fb.className="feedback show bien"; fb.innerHTML="&#10003; "+unesc(d.dataset.bien); }
+  else{ btn.classList.add('mal'); cont.querySelectorAll('.opt')[c].classList.add('ok'); fb.className="feedback show error"; fb.innerHTML="&#10007; "+unesc(d.dataset.mal); }
+  estado.respuestas[id]={i,correcta:i===c}; guardar();
+}
+function setAuto(id,val,btn){
+  estado.auto[id]=val; guardar();
+  btn.parentElement.querySelectorAll('.opt').forEach(b=>b.style.cssText="");
+  btn.style.cssText=autoStyle(val);
+}
+function completar(i){
+  if(!estado.completadas.includes(i)) estado.completadas.push(i);
+  guardar(); pintarProgreso(); pintarNav();
+  const btn=document.querySelector('.completar button');
+  btn.classList.add('hecha'); btn.innerHTML="&#10003; Semana completada";
+  if(i<7){ setTimeout(()=>{ semActiva=i+1; estado.ultimaSemana=i+1; guardar(); render(); window.scrollTo(0,0); },700); }
+}
+
+function restaurar(){
+  document.querySelectorAll('.q[id]').forEach(cont=>{
+    const id=cont.id, r=estado.respuestas[id];
+    if(r && cont.querySelector('.opt[data-c]')){
+      const opts=cont.querySelectorAll('.opt'), c=+opts[0].dataset.c;
+      opts.forEach(b=>b.disabled=true); cont.dataset.respondida="1";
+      const fb=document.getElementById(id+"_fb"), d=cont.querySelector('[data-mal]');
+      if(r.correcta){ opts[r.i].classList.add('ok'); fb.className="feedback show bien"; fb.innerHTML="&#10003; "+unesc(d.dataset.bien); }
+      else{ if(opts[r.i])opts[r.i].classList.add('mal'); opts[c].classList.add('ok'); fb.className="feedback show error"; fb.innerHTML="&#10007; "+unesc(d.dataset.mal); }
+    }
+  });
+}
+
+/* informe */
+function calcular(){
+  let pc={A:{ok:0,tot:0},C:{ok:0,tot:0},B:{ok:0,tot:0},INT:{ok:0,tot:0}};
+  SEMANAS.forEach((s,si)=>{
+    const k=s.crit;
+    Object.keys(estado.respuestas).forEach(rid=>{
+      if(rid.startsWith(`s${si}_`)){ const r=estado.respuestas[rid]; pc[k].tot++; if(r.correcta)pc[k].ok++; }
+    });
+  });
+  return pc;
+}
+function generarTexto(){
+  const n=estado.completadas.length, pc=calcular();
+  const linea=(k,nom)=> pc[k].tot? `  ${nom}: ${pc[k].ok}/${pc[k].tot} aciertos` : `  ${nom}: sin practicar`;
+  let autoTxt="";
+  if(SEMANAS[7].auto){
+    SEMANAS[7].auto.forEach((a,ai)=>{
+      const v=estado.auto["auto_"+ai];
+      const et={bien:"lo domino",medio:"más o menos",mal:"NECESITA REPASAR"}[v]||"sin marcar";
+      autoTxt+=`  - ${a.txt} -> ${et}\n`;
+    });
+  }
+  return `INFORME DE REPASO DE VERANO - ESPANOL B
+============================================
+Alumno/a: ${estado.alumno||"(escribir nombre en el correo)"}
+
+Semanas completadas: ${n} de 8
+
+ACIERTOS POR CRITERIO (ejercicios):
+${linea("A","Criterio A - Lengua")}
+${linea("C","Criterio C - Registro y tipo de texto")}
+${linea("B","Criterio B - Mensaje")}
+${linea("INT","Integracion (A+C+B)")}
+
+AUTOEVALUACION FINAL (semana 8):
+${autoTxt||"  (no completada)"}
+============================================
+Nota: este informe refleja trabajo y autopercepcion,
+no es una calificacion. Sirve de diagnostico para DP2.`;
+}
+function abrirInforme(){
+  if(!estado.alumno){
+    const nom=prompt("Antes de generar el informe, escribe tu nombre y apellido:");
+    if(nom){ estado.alumno=nom.trim(); guardar(); }
+  }
+  document.getElementById('textoInforme').value=generarTexto();
+  document.getElementById('mInforme').classList.add('show');
+}
+function enviarMail(){
+  const asunto=encodeURIComponent(`Repaso verano Espanol B - ${estado.alumno||"alumno"}`);
+  const cuerpo=encodeURIComponent(generarTexto());
+  window.location.href=`mailto:${CORREO_PROFE}?subject=${asunto}&body=${cuerpo}`;
+}
+function copiarInforme(){
+  const ta=document.getElementById('textoInforme'); ta.select(); ta.setSelectionRange(0,99999);
+  try{ document.execCommand('copy'); }catch(e){}
+  if(navigator.clipboard) navigator.clipboard.writeText(ta.value).catch(()=>{});
+  alert("Informe copiado. Pégalo donde te indique tu profesora.");
+}
+function esc(s){ return (s||"").replace(/"/g,'&quot;'); }
+function unesc(s){ return (s||"").replace(/&quot;/g,'"'); }
+render();
+
+</script>
+</body>
+</html>
